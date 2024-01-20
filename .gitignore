@@ -1,0 +1,19 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# ids
+.idea
+.nx
+
+# temp file
+temp
+tmp
+
+# system file
+.DS_Store
+Thumbs.db
+
+# npm
+node_modules
+
+# build file
+dist

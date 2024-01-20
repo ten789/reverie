@@ -1,0 +1,18 @@
+{
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "compileOnSave": false,
+  "exclude": ["node_modules", "tmp"],
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "lib": ["dom"],
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "suppressImplicitAnyIndexErrors": true,
+    "paths": {}
+  }
+}
