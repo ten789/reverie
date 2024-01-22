@@ -20,7 +20,7 @@ export class UserExtendService {
             if (old.extend.value === userExtendDto.extend[type as UserExtendType]) {
               return true;
             } else {
-              const value = { value: userExtendDto.extend[type as UserExtendType] };
+              const value: UserExtendEntityValue = { value: userExtendDto.extend[type as UserExtendType] };
               await this.log(manager, {
                 originId: old.id,
                 operate: DatabaseOperate.update,
@@ -31,7 +31,7 @@ export class UserExtendService {
               return manager.update(UserExtendEntity, { id: old.id }, { extend: value }).then((r) => r.affected === 1);
             }
           } else {
-            const value = { value: userExtendDto.extend[type as UserExtendType] };
+            const value: UserExtendEntityValue = { value: userExtendDto.extend[type as UserExtendType] };
             const userExtend = new UserExtendEntity();
             userExtend.userId = userExtendDto.useId;
             userExtend.type = type;
