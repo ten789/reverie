@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@reverie/share": ["libs/lShare/src/index.ts"]
+      "@reverie/share": ["libs/lShare/src/index.ts"],
+      "@reverie/user": ["libs/mUser/src/index.ts"]
     }
   }
 }
