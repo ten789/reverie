@@ -9,10 +9,14 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "lib": ["dom"],
+    "target": "ES2015",
+    "module": "ESNext",
+    "lib": ["ES2020","dom"],
+    "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "suppressImplicitAnyIndexErrors": true,
-    "paths": {}
+    "paths": {
+      "@reverie/share": ["libs/lShare/src/index.ts"]
+    }
   }
 }
