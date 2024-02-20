@@ -35,7 +35,7 @@ export class AuthService {
   }
 
   private async createAuthByPassword(authData: CreateAuthDto): Promise<boolean> {
-    const find = await this.authRepository.countBy({ type: AuthType.password, data: authData.data })
+    const find = await this.authRepository.countBy({ type: AuthType.password, data: authData.data });
     if(find === 0) {
       const insertData = new AuthEntity;
       insertData.type = AuthType.password;
@@ -56,7 +56,7 @@ export class AuthService {
   }
 
   private async createAuthByMobile(authData: CreateAuthDto): Promise<boolean> {
-    const old = await this.authRepository.findOneBy({ type: AuthType.password, uid: authData.uid, data: authData.data });
+    const old = await this.authRepository.findOneBy({ type: AuthType.mobile, uid: authData.uid, data: authData.data });
     if(old) {
       const newData = new AuthEntity;
       newData.createDate = now;
