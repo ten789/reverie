@@ -39,6 +39,8 @@ export class AuthService {
     if(find === 0) {
       const insertData = new AuthEntity;
       insertData.type = AuthType.password;
+      insertData.createDate = now;
+      insertData.lastDate = now;
       insertData.uid = authData.uid;
       insertData.data = authData.data;
       insertData.access = authData.access;
@@ -50,6 +52,7 @@ export class AuthService {
   private async authenticatePassword(authData: AuthDto): Promise<number | null> {
     const localData = await this.authRepository.findOneBy({ type: AuthType.password, data: authData.data });
     if(localData?.access === authData.access) {
+      await this.authRepository.update({lastDate: now}, {id: localData.id});
       return localData.id as number;
     }
     return null;
@@ -59,12 +62,13 @@ export class AuthService {
     const old = await this.authRepository.findOneBy({ type: AuthType.mobile, uid: authData.uid, data: authData.data });
     if(old) {
       const newData = new AuthEntity;
-      newData.createDate = now;
+      newData.lastDate = now;
       return !!(await this.authRepository.update(newData, { id: old.id }));
     } else {
       const newData = new AuthEntity;
       newData.type = AuthType.mobile;
       newData.createDate = now;
+      newData.lastDate = now;
       newData.uid = authData.uid;
       newData.data = authData.data;
       newData.access = authData.access;

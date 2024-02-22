@@ -11,6 +11,9 @@ export class AuthEntity {
     @Column({ type: 'datetime' })
     createDate!: string;
 
+    @Column({ type: 'datetime' })
+    lastDate!: string;
+
     @Column({ type: 'char' })
     type!: string;
 
